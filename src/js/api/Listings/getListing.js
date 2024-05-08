@@ -1,9 +1,10 @@
 import { API_AUCTION, API_BASE, API_KEY, API_LISTINGS } from "../auth/constants.js";
 
-export async function getListings(includeBids = true, includeSeller = true) {
+export async function getListings(includeBids = true, includeSeller = true, page = 2) {
     const queryParams = new URLSearchParams();
     if (includeBids) queryParams.append('_bids', includeBids);
     if (includeSeller) queryParams.append('_seller', includeSeller);
+    queryParams.append('page', page);
     const response = await fetch(`${API_BASE}${API_AUCTION}${API_LISTINGS}?${queryParams}`, {
         headers: {
             "X-Noroff-API-Key": API_KEY
@@ -12,6 +13,8 @@ export async function getListings(includeBids = true, includeSeller = true) {
 
     if (response.ok) {
         const responseData = await response.json();
+
+        console.log(responseData);
         return responseData;
     }
 

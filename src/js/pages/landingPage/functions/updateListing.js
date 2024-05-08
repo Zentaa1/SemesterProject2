@@ -1,3 +1,6 @@
+import { highestBid } from "./highestBid.js";
+import { listingIsActive } from "./listingIsActive.js";
+
 export async function updateListing(popularListings, index) {
     const listing = popularListings[index];
 
@@ -12,32 +15,6 @@ export async function updateListing(popularListings, index) {
     listingTitle.textContent = listing.title;
     listingImg.src = listing.media[0].url;
 
-    const highestBidAmount = Math.max(...listing.bids.map(bid => bid.amount));
-
-    listingPrice.textContent = highestBidAmount + ' NOK';
-
-    const endsAt = new Date(listing.endsAt);
-    const currentTime = new Date();
-    const isActive = endsAt > currentTime;
-
-    if (isActive) {
-        const timeDifference = endsAt - currentTime;
-        const hoursLeft = Math.floor(timeDifference / (1000 * 60 * 60));
-
-        let timeRemaining;
-        if (hoursLeft >= 24) {
-            const daysLeft = Math.floor(hoursLeft / 24);
-            const remainingHours = hoursLeft % 24;
-            timeRemaining = `${daysLeft}D ${remainingHours}H`
-        } else {
-            timeRemaining = `${hoursLeft} H`
-        }
-
-        listingState.textContent = timeRemaining;
-        listingState.classList.add('bg-green-400')
-    } else {
-
-        listingState.textContent = 'SOLD';
-        listingState.classList.add('bg-red-400');
-    }
+    listingIsActive(listing, listingState);
+    highestBid(listing, listingPrice);
 }

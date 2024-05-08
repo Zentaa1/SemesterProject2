@@ -689,6 +689,18 @@ video {
   margin-top: 2rem;
 }
 
+.mr-6 {
+  margin-right: 1.5rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
+}
+
+.ml-6 {
+  margin-left: 1.5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -923,10 +935,6 @@ video {
   padding-bottom: 0.5rem;
 }
 
-.pb-0 {
-  padding-bottom: 0px;
-}
-
 .font-sans {
   font-family: "PT Sans", sans-serif;
 }
@@ -982,10 +990,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.underline {
-  text-decoration-line: underline;
 }
 
 .filter {

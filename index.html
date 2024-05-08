@@ -99,18 +99,18 @@
                     cutting-edge gadgets and luxury goods.
                     With new items added daily, there's always something 
                     fresh and exciting to discover at AuctionPal.</p>
-                <button class="bg-secondary text-customWhite rounded py-1 px-3">Create a Listing</button>
+                <button id="createNewListing" class="bg-secondary text-customWhite rounded py-1 px-3">Create a Listing</button>
             </div>
         </section>
-        <div class="createForm fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50 hidden">
+        <div id="newListingForm" class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50 hidden">
             <div class="bg-white p-8 rounded-lg w-2/6 relative">
-                <button class="absolute top-0 right-0 m-4 text-gray-600 hover:text-gray-900 focus:outline-none text-3xl">×</button>
+                <button id="newListingX" class="absolute top-0 right-0 m-4 text-gray-600 hover:text-gray-900 focus:outline-none text-3xl">×</button>
                 <h2 class="text-2xl font-bold mb-4">Create New Listing</h2>
-                <form class="flex flex-col">
-                    <input type="text" placeholder="Title" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary">
-                    <textarea placeholder="Description" rows="4" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary resize-none"></textarea>
-                    <input type="text" placeholder="Extra Input" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary">
-                    <input type="date" placeholder="Ends At" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary">
+                <form id="newListingForm" class="flex flex-col">
+                    <input id="newListingTitle" type="text" placeholder="Title" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary">
+                    <textarea id="newListingDesc" placeholder="Description" rows="4" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary resize-none"></textarea>
+                    <input id="newListingImg" type="text" placeholder="Extra Input" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary">
+                    <input id="newListingDate" type="datetime-local" placeholder="Ends At" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary">
                     <button type="submit" class="bg-secondary text-white px-4 py-2 rounded-md focus:outline-none createListingBtn">Create Listing</button>
                 </form>
             </div>
@@ -123,45 +123,19 @@
         </section>
         <section class="container mx-auto max-w-fit">
             <div class="mb-2 flex flex-row">
-                <button id="lastChanceBtn" class="font-semibold">Last Chance</button>
-                <button id="newListingBtn">New Listings</button>
+                <button id="lastChanceBtn" class="font-semibold border-b border-primary ">Last Chance</button>
+                <button id="newListingBtn" class="ml-4">New Listings</button>
             </div>
-            <div class="flex flex-row">
-                <div class="popularListingDiv max-w-fit bg-customGray rounded pb-2 mx-3">
+            <div id="listingContainer" class="flex flex-row">
+                <div id="listingTemplate" class="popularListingDiv max-w-fit bg-customGray rounded pb-2 mx-3 hidden">
                     <div class="w-72 h-40 bg-primary rounded-t">
-                        <img class="h-full w-full object-contain" src="src/img/Ferrari.jpg" alt="">
-                      </div>                                                   
-                        <div class="flex flex-col items-center">
-                            <h2 class="text-xl font-bold">Ferrari 812 Superfast</h2>
-                        <div class="flex">
-                            <h2 class="bg-red-400 font-bold py-0.5 px-2.5 rounded-md">SOLD</h2>
-                            <p>2.500.000kr</p>
-                        </div>
-                        <button class="bg-secondary text-customWhite rounded py-1 px-2 font-semibold mt-2">View Listing</button>
-                        </div>
-                </div>
-                <div class="popularListingDiv max-w-fit bg-customGray rounded pb-2 mx-3">
-                <div class="w-72 h-40 bg-primary rounded-t">
-                    <img class="h-full w-full object-contain" src="src/img/Ferrari.jpg" alt="">
+                        <img class="newLastImg h-full w-full object-contain" src="src/img/Ferrari.jpg" alt="">
                     </div>                                                   
                     <div class="flex flex-col items-center">
-                        <h2 class="text-xl font-bold">Ferrari 812 Superfast</h2>
-                        <div class="flex">
-                        <h2 class="bg-red-400 font-bold py-0.5 px-2.5 rounded-md">SOLD</h2>
-                        <p>2.500.000kr</p>
-                    </div>
-                    <button class="bg-secondary text-customWhite rounded py-1 px-2 font-semibold mt-2">View Listing</button>
-                    </div>
-                </div>
-                <div class="popularListingDiv max-w-fit bg-customGray rounded pb-2 mx-3">
-                    <div class="w-72 h-40 bg-primary rounded-t">
-                        <img class="h-full w-full object-contain" src="src/img/Ferrari.jpg" alt="">
-                    </div>                                                   
-                    <div class="flex flex-col items-center">
-                        <h2 class="text-xl font-bold">Ferrari 812 Superfast</h2>
+                        <h2 class="newLastTitle text-xl font-bold">Ferrari 812 Superfast</h2>
                     <div class="flex">
-                        <h2 class="bg-red-400 font-bold py-0.5 px-2.5 rounded-md">SOLD</h2>
-                        <p>2.500.000kr</p>
+                        <h2 class="newLastState bg-red-400 font-bold py-0.5 px-2.5 rounded-md">SOLD</h2>
+                        <p class="newLastPrice">2.500.000kr</p>
                     </div>
                         <button class="bg-secondary text-customWhite rounded py-1 px-2 font-semibold mt-2">View Listing</button>
                     </div>
