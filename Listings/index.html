@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuctionPal</title>
+    <link rel="stylesheet" href="../dist/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script type="module" src="src/js/pages/landingPage/index.js"></script>
+</head>
+<body class="bg-customWhite text-primary font-sans">
+    <header>
+        <nav class="container mx-auto flex flex-row items-center justify-between mt-2 mb-2">
+            <div class="flex flex-row">
+                <img src="/src/img/AuctionPal.png" alt="">
+                <ul class="flex flex-row mx-4">
+                    <li class="mr-4"><a href="../">Home</a></li>
+                    <li class="mr-4"><a href="/Listings/">Listings</a></li>
+                    <li class="mr-4"><a href="/aboutus/">About Us</a></li>
+                    <li class="mr-4"><a href="/Information/">Information</a></li>
+                </ul>
+            </div>
+            <div>
+                <button class="authBtn">Login</button>
+                <button class="logOutBtn">Log Out</button>
+            </div>
+        </nav>              
+        <div class="bg-secondary w-screen h-14 flex justify-center items-center">
+            <input class="h-8 w-2/6 rounded bg-customWhite" type="text" placeholder="Search...">
+        </div>
+    </header>
+    <main>
+        <div class="loginForm fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50 hidden">
+            <div class="bg-white p-8 rounded-lg relative w-2/6">
+                <button class="loginFormX absolute top-8 right-10 -mt-8 -mr-8 text-3xl text-gray-600 hover:text-gray-900 focus:outline-none">×</button>
+                <h2 class="text-2xl font-bold mb-4">Login</h2>
+                <form id="loginForm" class="flex flex-col">
+                    <input id="loginEmail" type="text" placeholder="email" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary">
+                    <input id="loginPassword" type="password" placeholder="Password" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary">
+                    <button type="submit" class="bg-secondary text-white px-4 py-2 rounded-md focus:outline-none loginBtn">Login</button>
+                    <p>Dont have an account? <button class="text-secondary registerNowBtn">Register Now</button></p>
+                </form>
+            </div>
+        </div> 
+        <div class="registerForm fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50 hidden">
+            <div class="bg-white p-8 rounded-lg relative w-2/6">
+                <button class="registerFormX absolute top-8 right-10 -mt-8 -mr-8 text-3xl text-gray-600 hover:text-gray-900 focus:outline-none">×</button>
+                <h2 class="text-2xl font-bold mb-4">Register</h2>
+                <form id="registerForm" class="flex flex-col">
+                    <input type="text" placeholder="avatar URL" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary">
+                    <input id="registerName" type="text" placeholder="Username" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary">
+                    <input id="registerEmail" type="email" placeholder="frank@stud.noroff.no" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary">
+                    <input id="registerPassword" type="password" placeholder="Password" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary">
+                    <input type="password" placeholder="Confirm Password" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary">
+                    <button type="submit" class="bg-secondary text-white px-4 py-2 rounded-md focus:outline-none registerBtn">Register</button>
+                    <p>Already have an account? <button class="text-secondary loginNowBtn">Login</button></p>
+                </form>
+            </div>
+        </div>
+        <section>
+            <div class="popularListingDiv max-w-fit bg-customGray rounded pb-2">
+                <div class="w-72 h-40 bg-primary rounded-t">
+                    <img id="listingImg" class="h-full w-full object-contain" src="src/img/Ferrari.jpg" alt="">
+                  </div>                                                   
+                    <div class="flex flex-col items-center">
+                        <h2 id="listingTitle" class="text-xl font-bold">Ferrari 812 Superfast</h2>
+                    <div class="flex">
+                        <h2 id="listingState" class="bg-red-400 font-bold py-0.5 px-2.5 rounded-md">SOLD</h2>
+                        <p id="listingPrice">2.500.000kr</p>
+                    </div>
+                    <a id="listingLink" class="bg-secondary text-customWhite rounded py-1 px-2 font-semibold mt-2">View Listing</a>
+                    </div>
+                </div>
+        </section>
+    </main>
+    <footer class="bg-secondary text-customWhite py-3">
+        <div class="container mx-auto">
+        <div class="flex flex-row justify-around">
+            <div>
+                <h2 class="text-3xl">AuctionPal</h2>
+                <ul>
+                    <li class="mt-2">Auctionroad 4, 0000 Oslo, Norway</a></li>
+                    <li class="mt-2">+01 23 45 67 89</li>
+                    <li class="mt-2">contact@auctionpal.com</li>
+                </ul>
+            </div>
+            <div class="mt-8">
+                <ul>
+                    <li class="mt-2"><a href="">How to Buy</a></li>
+                    <li class="mt-2"><a href="">How to sell</a></li>
+                </ul>
+            </div>
+            <div class="mt-8">
+                <ul>
+                    <li class="mt-2">Instagram</li>
+                    <li class="mt-2">Facebook</li>
+                    <li class="mt-2">LinkedIn</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </footer>
+</body>
+</html>
