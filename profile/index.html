@@ -62,25 +62,41 @@
     <section class="flex justify-center mt-5">
         <div class="bg-customGray rounded container flex flex-col justify-center items-center py-5">
             <img id="profileAvatar" class="rounded-full w-40 h-40" src="../src/img/placeholder.jpg" alt="">
-            <h1 id="profileName">Zentaa</h1>
+            <div class="flex flex-row justify-center items-center mt-2">
+                <h1 id="profileName" class=" font-semibold text-lg">Zentaa</h1>
+            </div>
         </div>
     </section>
-    <section id="profileListings">
-        <div id="listingContainer" class="flex flex-row">
+    <section id="profileListings" class="mt-5">
+        <div id="listingContainer" class="flex flex-row container justify-center items-center">
             <div id="listingTemplate" class="popularListingDiv max-w-fit bg-customGray rounded pb-2 mx-3">
                 <div class="w-72 h-40 bg-primary rounded-t">
-                    <img class="newLastImg h-full w-full object-contain" src="../src/img/Ferrari.jpg" alt="">
+                    <img class="profileImg h-full w-full object-contain" src="../src/img/Ferrari.jpg" alt="">
                 </div>                                                   
                 <div class="flex flex-col items-center">
-                    <h2 class="newLastTitle text-xl font-bold">Ferrari 812 Superfast</h2>
+                    <h2 class="profileTitle text-xl font-bold">Ferrari 812 Superfast</h2>
                 <div class="flex">
-                    <h2 class="newLastState bg-red-400 font-bold py-0.5 px-2.5 rounded-md">SOLD</h2>
-                    <p class="newLastPrice">2.500.000kr</p>
+                    <h2 class="profileState bg-red-400 font-bold py-0.5 px-2.5 rounded-md">SOLD</h2>
+                    <p class="profilePrice">2.500.000kr</p>
                 </div>
-                    <button class="bg-secondary text-customWhite rounded py-1 px-2 font-semibold mt-2">View Listing</button>
+                    <div>
+                        <button class="listingLink bg-secondary text-customWhite rounded py-1 px-2 font-semibold mt-2">View Listing</button>
+                        <button class="updateBtn bg-primary text-customWhite rounded py-1 px-2 font-semibold mt-2 hidden">Update Listing</button>
+                    </div>
                 </div>
             </div>
         </div>
+        <div id="updListingDiv" class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50 hidden">
+            <div class="bg-white p-8 rounded-lg w-2/6 relative">
+                <button id="updListingX" class="absolute top-0 right-0 m-4 text-gray-600 hover:text-gray-900 focus:outline-none text-3xl">×</button>
+                <h2 class="text-2xl font-bold mb-4">Update Listing</h2>
+                <form id="updListingForm" class="flex flex-col">
+                    <input id="updListingTitle" type="text" placeholder="Title" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary">
+                    <textarea id="updListingDesc" placeholder="Description" rows="4" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary resize-none"></textarea>
+                    <input id="updListingImg" type="text" placeholder="Image Link" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary">
+                    <button type="submit" class="bg-secondary text-white px-4 py-2 rounded-md focus:outline-none createListingBtn">Update Listing</button>
+                </form>
+            </div>
     </section>
     </main>
     <footer class="bg-secondary text-customWhite py-3">

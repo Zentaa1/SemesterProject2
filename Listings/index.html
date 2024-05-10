@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <script type="module" src="src/js/pages/landingPage/index.js"></script>
+    <script type="module" src="../src/js/pages/listings/index.js"></script>
 </head>
 <body class="bg-customWhite text-primary font-sans">
     <header>
@@ -22,7 +22,7 @@
                     <li class="mr-4"><a href="/Information/">Information</a></li>
                 </ul>
             </div>
-            <div>
+            <div class="authDiv flex flex-row-reverse">
                 <button class="authBtn">Login</button>
                 <button class="logOutBtn">Log Out</button>
             </div>
@@ -59,20 +59,22 @@
                 </form>
             </div>
         </div>
-        <section>
-            <div class="popularListingDiv max-w-fit bg-customGray rounded pb-2">
-                <div class="w-72 h-40 bg-primary rounded-t">
-                    <img id="listingImg" class="h-full w-full object-contain" src="src/img/Ferrari.jpg" alt="">
-                  </div>                                                   
+        <section id="profileListings" class="mt-5" >
+            <div id="listingContainer" class="flex flex-row flex-wrap container justify-center items-center">
+                <div id="listingTemplate" class="max-w-fit bg-customGray rounded pb-2 mx-3 mt-5">
+                    <div class="w-72 h-40 bg-primary rounded-t">
+                        <img class="listingImg h-full w-full object-contain" src="../src/img/Ferrari.jpg" alt="">
+                    </div>                                                   
                     <div class="flex flex-col items-center">
-                        <h2 id="listingTitle" class="text-xl font-bold">Ferrari 812 Superfast</h2>
+                        <h2 class="listingTitle text-xl font-bold whitespace-nowrap overflow-hidden text-ellipsis">Ferrari 812 Superfast</h2>
                     <div class="flex">
-                        <h2 id="listingState" class="bg-red-400 font-bold py-0.5 px-2.5 rounded-md">SOLD</h2>
-                        <p id="listingPrice">2.500.000kr</p>
+                        <h2 class="listingState bg-red-400 font-bold py-0.5 px-2.5 rounded-md">SOLD</h2>
+                        <p class="listingPrice">2.500.000kr</p>
                     </div>
-                    <a id="listingLink" class="bg-secondary text-customWhite rounded py-1 px-2 font-semibold mt-2">View Listing</a>
+                        <button class="bg-secondary text-customWhite rounded py-1 px-2 font-semibold mt-2">View Listing</button>
                     </div>
                 </div>
+            </div>
         </section>
     </main>
     <footer class="bg-secondary text-customWhite py-3">

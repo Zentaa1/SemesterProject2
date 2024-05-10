@@ -1,6 +1,6 @@
 import { getListings } from "../../../api/Listings/getListing.js";
 import { filterPopular } from "./filterPopular.js";
-import { updateListing } from "./updateListing.js";
+import { updatePopularListing } from "./updatePopularListing.js";
 
 export default async function popularListing() {
     const listings = await getListings();
@@ -10,7 +10,7 @@ export default async function popularListing() {
 
     let currentIndex = 0;
 
-    updateListing(popularListings, currentIndex);
+    updatePopularListing(popularListings, currentIndex);
 
     const nextButton = document.getElementById('popularNext');
     nextButton.addEventListener('click', function() {
@@ -19,7 +19,7 @@ export default async function popularListing() {
             currentIndex = 0;
         }
 
-        updateListing(popularListings, currentIndex);
+        updatePopularListing(popularListings, currentIndex);
     });
 
     const prevButton = document.getElementById('popularPrev');
@@ -28,7 +28,7 @@ export default async function popularListing() {
         if (currentIndex < 0) {
             currentIndex = popularListings.length - 1;
         }
-        updateListing(popularListings, currentIndex);
+        updatePopularListing(popularListings, currentIndex);
     });
 
 
