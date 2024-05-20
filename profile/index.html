@@ -13,27 +13,46 @@
 <body class="bg-customWhite text-primary font-sans">
     <header>
         <nav class="container mx-auto flex flex-row items-center justify-between mt-2 mb-2">
-            <div class="flex flex-row">
-                <img src="/src/img/AuctionPal.png" alt="">
-                <ul class="flex flex-row mx-4">
-                    <li class="mr-4"><a href="./">Home</a></li>
-                    <li class="mr-4"><a href="/Listings/">Listings</a></li>
-                    <li class="mr-4"><a href="/aboutus/">About Us</a></li>
-                    <li class="mr-4"><a href="/Information/">Information</a></li>
+            <div class="flex flex-row items-center">
+                <a href="../">
+                    <img src="/src/img/AuctionPal.png" alt="">
+                </a>
+                <ul class="hidden md:flex flex-row mx-4">
+                    <li class="mr-4"><a href="../" class="hover:text-secondary">Home</a></li>
+                    <li class="mr-4"><a href="/Listings/" class="hover:text-secondary">Listings</a></li>
+                    <li class="mr-4"><a href="/aboutus/" class="hover:text-secondary">About Us</a></li>
+                    <li class="mr-4"><a href="/Information/" class="hover:text-secondary">Information</a></li>
                 </ul>
             </div>
-            <div class="authDiv flex flex-row-reverse">
-                <button class="authBtn">Login</button>
-                <button class="logOutBtn">Log Out</button>
+            <div class="authDiv hidden md:flex flex-row-reverse">
+                <button class="authBtn bg-secondary text-customWhite px-4 py-2 rounded ml-2">Login</button>
+                <button class="logOutBtn hidden bg-primary text-customWhite px-4 py-2 rounded">Log Out</button>
             </div>
-        </nav>              
+            <div class="md:hidden">
+                <button id="menuBtn" class="text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobileMenu" class="hidden-menu md:hidden bg-customWhite shadow-lg">
+            <a href="../" class="block px-4 py-2 text-primary hover:bg-secondary hover:text-custom bg-customWhite">Home</a>
+            <a href="/Listings/" class="block px-4 py-2 text-primary hover:bg-secondary hover:text-custom bg-customWhite">Listings</a>
+            <a href="/aboutus/" class="block px-4 py-2 text-primary hover:bg-secondary hover:text-custom bg-customWhite">About Us</a>
+            <a href="/Information/" class="block px-4 py-2 text-primary hover:bg-secondary hover:text-custom bg-customWhite">Information</a>
+            <div class="mobileAuthDiv flex flex-col items-start px-4 py-2 text-center">
+                <button class="authBtn bg-secondary text-customWhite px-4 py-2 rounded mt-2 w-full">Login</button>
+                <button class="logOutBtn hidden bg-primary text-customWhite px-4 py-2 rounded mt-2 w-full">Log Out</button>
+            </div>
+        </div>
         <div class="bg-secondary w-screen h-14 flex justify-center items-center">
-            <input class="h-8 w-2/6 rounded bg-customWhite" type="text" placeholder="Search...">
+            <input id="searchInput" class="h-8 w-2/6 rounded bg-white" type="search" placeholder="Search...">
         </div>
     </header>
     <main>
         <div class="loginForm fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50 hidden">
-            <div class="bg-white p-8 rounded-lg relative w-2/6">
+            <div class="bg-white p-8 rounded-lg relative w-full md:w-2/6">
                 <button class="loginFormX absolute top-8 right-10 -mt-8 -mr-8 text-3xl text-gray-600 hover:text-gray-900 focus:outline-none">×</button>
                 <h2 class="text-2xl font-bold mb-4">Login</h2>
                 <form id="loginForm" class="flex flex-col">
@@ -45,7 +64,7 @@
             </div>
         </div> 
         <div class="registerForm fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50 hidden">
-            <div class="bg-white p-8 rounded-lg relative w-2/6">
+            <div class="bg-white p-8 rounded-lg relative w-full md:w-2/6">
                 <button class="registerFormX absolute top-8 right-10 -mt-8 -mr-8 text-3xl text-gray-600 hover:text-gray-900 focus:outline-none">×</button>
                 <h2 class="text-2xl font-bold mb-4">Register</h2>
                 <form id="registerForm" class="flex flex-col">
@@ -68,8 +87,8 @@
         </div>
     </section>
     <section id="profileListings" class="mt-5">
-        <div id="listingContainer" class="flex flex-row container justify-center items-center">
-            <div id="listingTemplate" class="popularListingDiv max-w-fit bg-customGray rounded pb-2 mx-3">
+        <div id="listingContainer" class="flex flex-row flex-wrap container justify-center items-center">
+            <div id="listingTemplate" class="popularListingDiv max-w-fit bg-customGray rounded mt-2 pb-2 mx-3">
                 <div class="w-72 h-40 bg-primary rounded-t">
                     <img class="profileImg h-full w-full object-contain" src="../src/img/Ferrari.jpg" alt="">
                 </div>                                                   
@@ -80,14 +99,17 @@
                     <p class="profilePrice">2.500.000kr</p>
                 </div>
                     <div>
-                        <button class="listingLink bg-secondary text-customWhite rounded py-1 px-2 font-semibold mt-2">View Listing</button>
+                        <a class="listingLink bg-secondary text-customWhite rounded py-1 px-2 font-semibold mt-2">View Listing</a>
                         <button class="updateBtn bg-primary text-customWhite rounded py-1 px-2 font-semibold mt-2 hidden">Update Listing</button>
+                    </div>
+                    <div>
+                        <button class="delBtn bg-red-400 text-primary hover:bg-red-200 hover:border-red-400 rounded py-1 px-2 font-semibold mt-2">Delete Listing</button>
                     </div>
                 </div>
             </div>
         </div>
         <div id="updListingDiv" class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50 hidden">
-            <div class="bg-white p-8 rounded-lg w-2/6 relative">
+            <div class="bg-white p-8 rounded-lg w-full md:w-2/6 relative">
                 <button id="updListingX" class="absolute top-0 right-0 m-4 text-gray-600 hover:text-gray-900 focus:outline-none text-3xl">×</button>
                 <h2 class="text-2xl font-bold mb-4">Update Listing</h2>
                 <form id="updListingForm" class="flex flex-col">

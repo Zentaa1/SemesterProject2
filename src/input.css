@@ -2,6 +2,17 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+}
+
 .tooltip-container {
     position: relative;
     display: inline-block;
@@ -24,4 +35,8 @@
 
 .tooltip-container:hover .tooltip-text {
     visibility: visible;
+}
+
+.hidden-menu {
+    display: none;
 }

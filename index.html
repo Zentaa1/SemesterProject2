@@ -13,27 +13,52 @@
 <body class="bg-customWhite text-primary font-sans">
     <header>
         <nav class="container mx-auto flex flex-row items-center justify-between mt-2 mb-2">
-            <div class="flex flex-row">
-                <img src="/src/img/AuctionPal.png" alt="">
-                <ul class="flex flex-row mx-4">
-                    <li class="mr-4"><a href="./">Home</a></li>
-                    <li class="mr-4"><a href="/Listings/">Listings</a></li>
-                    <li class="mr-4"><a href="/aboutus/">About Us</a></li>
-                    <li class="mr-4"><a href="/Information/">Information</a></li>
+            <div class="flex flex-row items-center">
+                <a href="./">
+                    <img src="/src/img/AuctionPal.png" alt="">
+                </a>
+                <ul class="hidden md:flex flex-row mx-4">
+                    <li class="mr-4"><a href="./" class="hover:text-secondary">Home</a></li>
+                    <li class="mr-4"><a href="/Listings/" class="hover:text-secondary">Listings</a></li>
+                    <li class="mr-4"><a href="/aboutus/" class="hover:text-secondary">About Us</a></li>
+                    <li class="mr-4"><a href="/Information/" class="hover:text-secondary">Information</a></li>
                 </ul>
             </div>
-            <div class="authDiv flex flex-row-reverse">
-                <button class="authBtn">Login</button>
-                <button class="logOutBtn">Log Out</button>
+            <div class="authDiv hidden md:flex flex-row-reverse">
+                <button class="authBtn bg-secondary text-customWhite px-4 py-2 rounded ml-2">Login</button>
+                <button class="logOutBtn hidden bg-primary text-customWhite px-4 py-2 rounded">Log Out</button>
             </div>
-        </nav>              
-        <div class="bg-secondary w-screen h-14 flex justify-center items-center">
-            <input class="h-8 w-2/6 rounded bg-customWhite" type="text" placeholder="Search...">
+            <div class="md:hidden">
+                <button id="menuBtn" class="text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobileMenu" class="hidden-menu md:hidden bg-customWhite shadow-lg">
+            <a href="../" class="block px-4 py-2 text-primary hover:bg-secondary hover:text-custom bg-customWhite">Home</a>
+            <a href="/Listings/" class="block px-4 py-2 text-primary hover:bg-secondary hover:text-custom bg-customWhite">Listings</a>
+            <a href="/aboutus/" class="block px-4 py-2 text-primary hover:bg-secondary hover:text-custom bg-customWhite">About Us</a>
+            <a href="/Information/" class="block px-4 py-2 text-primary hover:bg-secondary hover:text-custom bg-customWhite">Information</a>
+            <div class="mobileAuthDiv flex flex-col items-start px-4 py-2 text-center">
+                <button class="authBtn bg-secondary text-customWhite px-4 py-2 rounded mt-2 w-full">Login</button>
+                <button class="logOutBtn hidden bg-primary text-customWhite px-4 py-2 rounded mt-2 w-full">Log Out</button>
+            </div>
+        </div>
+        <div class="bg-secondary w-screen h-14 flex justify-center items-center search-container">
+            <input id="searchInput" class="h-8 w-4/6 md:w-2/6 rounded bg-white" type="search" placeholder="Search...">
         </div>
     </header>
+    <div id="searchResults" class="z-50 border border-secondary bg-customWhite rounded w-4/6 md:w-2/6 mt-2 mx-auto">
+        <a id="searchTemplate" class="search-result block p-3 border-t border-secondary" href="">
+            <h2 class="mb-0 searchTitle text-sm font-bold"></h2>
+            <p class="mb-0 searchAuthor text-sm"></p>
+        </a>
+    </div>
     <main>
         <div class="loginForm fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50 hidden">
-            <div class="bg-white p-8 rounded-lg relative w-2/6">
+            <div class="bg-white p-8 rounded-lg relative w-full md:w-2/6">
                 <button class="loginFormX absolute top-8 right-10 -mt-8 -mr-8 text-3xl text-gray-600 hover:text-gray-900 focus:outline-none">×</button>
                 <h2 class="text-2xl font-bold mb-4">Login</h2>
                 <form id="loginForm" class="flex flex-col">
@@ -45,7 +70,7 @@
             </div>
         </div> 
         <div class="registerForm fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50 hidden">
-            <div class="bg-white p-8 rounded-lg relative w-2/6">
+            <div class="bg-white p-8 rounded-lg relative w-full md:w-2/6">
                 <button class="registerFormX absolute top-8 right-10 -mt-8 -mr-8 text-3xl text-gray-600 hover:text-gray-900 focus:outline-none">×</button>
                 <h2 class="text-2xl font-bold mb-4">Register</h2>
                 <form id="registerForm" class="flex flex-col">
@@ -59,16 +84,15 @@
                 </form>
             </div>
         </div>
-        <section class="container mx-auto max-w-fit">
+        <section class="container mx-auto w-5/6 md:max-w-fit">
             <h1 class="text-2xl font-bold mt-2">Welcome to AuctionPal - Your Ultimate Auction Destination</h1>
             <p class="text-base max-w-2xl mt-2">At AuctionPal, we’re dedicated to bringing you the most exciting auction experience on the web.
                 Whether you’re a seasoned collector, a savvy investor, or just love the thrill of bidding, AuctionPal
                 is your go-to destination for discovering unique treasures and exclusive deals.</p>
-        </section>
-        
-        <section class="container mx-auto mt-10 flex flex-row justify-center">
+        </section>    
+        <section class="container mx-auto mt-10 flex flex-col justify-center md:flex-row items-center">
             <div class="flex items-center" id="popularListings">
-                <div id="popularPrev" class="mx-5 cursor-auto">
+                <div id="popularPrev" class="mx-5 cursor-auto hidden md:block">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                       </svg>                      
@@ -86,13 +110,13 @@
                         <a id="popularLink" class="bg-secondary text-customWhite rounded py-1 px-2 font-semibold mt-2">View Listing</a>
                         </div>
                     </div>
-                <div  id="popularNext" class="mx-5">
+                <div  id="popularNext" class="mx-5 hidden md:block">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                       </svg>                      
                 </div>
             </div>
-            <div class="max-w-fit">
+            <div class="max-w-fit mt-5 sm:mt-0  w-5/6 md:max-w-fit">
                 <h2 class="text-2xl font-bold">Discover a World of Possibilities</h2>
                 <p class="text-base max-w-sm">Explore a vast array of items up for auction, 
                     from rare antiques and collectibles to 
@@ -103,7 +127,7 @@
             </div>
         </section>
         <div id="newListingForm" class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50 hidden">
-            <div class="bg-white p-8 rounded-lg w-2/6 relative">
+            <div class="bg-white p-8 rounded-lg  w-full md:w-2/6 relative">
                 <button id="newListingX" class="absolute top-0 right-0 m-4 text-gray-600 hover:text-gray-900 focus:outline-none text-3xl">×</button>
                 <h2 class="text-2xl font-bold mb-4">Create New Listing</h2>
                 <form id="newListingForm" class="flex flex-col">
@@ -123,25 +147,25 @@
         </section>
         <section class="container mx-auto max-w-fit">
             <div class="mb-2 flex flex-row">
-                <button id="lastChanceBtn" class="font-semibold border-b border-primary ">Last Chance</button>
+                <button id="lastChanceBtn" class="font-semibold border-b border-primary">Last Chance</button>
                 <button id="newListingBtn" class="ml-4">New Listings</button>
             </div>
-            <div id="listingContainer" class="flex flex-row">
-                <div id="listingTemplate" class="popularListingDiv max-w-fit bg-customGray rounded pb-2 mx-3 hidden">
+            <div id="listingContainer" class="flex flex-row overflow-x-auto space-x-3">
+                <div id="listingTemplate" class="popularListingDiv min-w-[300px] max-w-fit bg-customGray rounded pb-2 hidden">
                     <div class="w-72 h-40 bg-primary rounded-t">
                         <img class="newLastImg h-full w-full object-contain" src="src/img/Ferrari.jpg" alt="">
                     </div>                                                   
                     <div class="flex flex-col items-center">
                         <h2 class="newLastTitle text-xl font-bold">Ferrari 812 Superfast</h2>
-                    <div class="flex">
-                        <h2 class="newLastState bg-red-400 font-bold py-0.5 px-2.5 rounded-md">SOLD</h2>
-                        <p class="newLastPrice">2.500.000kr</p>
-                    </div>
+                        <div class="flex">
+                            <h2 class="newLastState bg-red-400 font-bold py-0.5 px-2.5 rounded-md">SOLD</h2>
+                            <p class="newLastPrice ml-2">2.500.000kr</p>
+                        </div>
                         <button class="bg-secondary text-customWhite rounded py-1 px-2 font-semibold mt-2">View Listing</button>
                     </div>
                 </div>
             </div>
-        </section>
+        </section>    
         <section class="bg-primary text-customWhite flex-col flex items-center py-3 mt-6">
             <h2 class="text-2xl">Start Bidding today</h2>
             <p class="text-base container w-4/6">Ready to start your auction journey? Sign up for free and join the excitement at AuctionPal. 

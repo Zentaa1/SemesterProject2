@@ -1,3 +1,4 @@
+import { deleteBtn } from "../../../components/deleteBtn.js";
 import { highestBid } from "../../landingPage/functions/highestBid.js";
 import { listingImage } from "../../landingPage/functions/listingImg.js";
 import { listingIsActive } from "../../landingPage/functions/listingIsActive.js";
@@ -25,6 +26,12 @@ export async function renderProfileListings(data) {
             const listingState = newListing.querySelector('.profileState');
             const listingPrice = newListing.querySelector('.profilePrice');
             const listingImg = newListing.querySelector('.profileImg');
+            const listingLink = newListing.querySelector('.listingLink');
+            const listingDelBtn = newListing.querySelector('.delBtn');
+
+            listingLink.setAttribute('href', `../listing/?id=${listingId}`);
+            listingLink.setAttribute('data-listing-id', listingId);
+
 
             listingImage(listing, listingImg);
     
@@ -33,6 +40,8 @@ export async function renderProfileListings(data) {
             listingIsActive(listing, listingState);
 
             updateListing(newListing, listing);
+
+            deleteBtn(listingDelBtn, listing);
     
             listingContainer.appendChild(newListing);
 

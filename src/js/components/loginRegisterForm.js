@@ -27,9 +27,12 @@ export default function authForm() {
         loginForm.classList.remove('hidden');
     })
 
-    const authBtn = document.querySelector('.authBtn');
-    authBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        loginForm.classList.remove('hidden');
-    })
+    const authBtn = document.querySelectorAll('.authBtn');
+    authBtn.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Login button clicked');
+            loginForm.classList.remove('hidden');
+        });
+    });
 }
