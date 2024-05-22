@@ -85,6 +85,19 @@
             <div class="flex flex-row justify-center items-center mt-2">
                 <h1 id="profileName" class=" font-semibold text-lg">Zentaa</h1>
             </div>
+            <p id="profileCredits" class="hidden">Credits: </p>
+            <button class="updateProfileBtn bg-primary text-customWhite rounded py-1 px-2 font-semibold mt-2 hidden">Update profile</button>
+        </div>
+        <div id="updProfileDiv" class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50 hidden">
+            <div class="bg-white p-8 rounded-lg w-full md:w-2/6 relative">
+                <button id="updProfileX" class="absolute top-0 right-0 m-4 text-gray-600 hover:text-gray-900 focus:outline-none text-3xl">×</button>
+                <h2 class="text-2xl font-bold mb-4">Update Profile</h2>
+                <form id="updProfileForm" class="flex flex-col">
+                    <input id="updProfileAvatar" type="text" placeholder="Avatar (Must be a valid URL)" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary">
+                    <textarea id="updProfileDesc" placeholder="Description" rows="4" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary resize-none"></textarea>
+                    <button type="submit" class="bg-secondary text-white px-4 py-2 rounded-md focus:outline-none createListingBtn">Update Profile</button>
+                </form>
+            </div>
         </div>
     </section>
     <section id="profileListings" class="mt-5">
@@ -120,6 +133,7 @@
                     <button type="submit" class="bg-secondary text-white px-4 py-2 rounded-md focus:outline-none createListingBtn">Update Listing</button>
                 </form>
             </div>
+        </div>
     </section>
     </main>
     <footer class="bg-secondary text-customWhite py-3">

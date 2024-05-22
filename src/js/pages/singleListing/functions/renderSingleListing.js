@@ -66,6 +66,8 @@ export async function renderSingleListing() {
         listingTitle.textContent = listing.data.title;
         listingSellerAvatar.src = listing.data.seller.avatar.url;
         listingSellerName.textContent = listing.data.seller.name;
+        listingSellerName.setAttribute('href', `../profile/?name=${listing.data.seller.name}`);
+        listingSellerName.setAttribute('data-post-name', listing.data.seller.name);
 
         bids.forEach(bid => {
             const bidder = bid.bidder.name;

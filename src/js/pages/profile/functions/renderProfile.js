@@ -1,7 +1,7 @@
 import { getProfile } from "../../../api/profile/getProfile.js";
 import { getProfileListings } from "../../../api/profile/getProfileListings.js";
-import { hideSpinner, showSpinner } from "../../../components/loadingSpinner.js";
 import { renderProfileListings } from "./renderProfileListings.js";
+import { updateProfile } from "./updProfile.js";
 
 export async function renderProfile() {
     try {
@@ -17,6 +17,8 @@ export async function renderProfile() {
 
         document.getElementById('profileAvatar').src = profile.data.avatar.url;
         document.getElementById('profileName').textContent = profile.data.name;
+
+        updateProfile(profile);
         
     } catch (error) {
         console.error(error);
