@@ -14,8 +14,6 @@ export async function newListing(listingTitle, listingEndsAt, listingDescription
         body: JSON.stringify({ title: listingTitle, endsAt: listingDate, description: listingDescription, media:[{ url: listingMedia}] })
     });
 
-    console.log(response);
-
     if (response.ok) {
         const responseData = await response.json();
         return responseData;

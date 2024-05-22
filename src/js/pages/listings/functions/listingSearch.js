@@ -13,7 +13,6 @@ export async function searchFunction() {
             try {
                 const response = await searchListings(searchText);
                 const data = response.data;
-                console.log(data)
 
                 renderListings(data);
             } catch (error) {

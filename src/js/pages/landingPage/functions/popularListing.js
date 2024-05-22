@@ -6,8 +6,6 @@ export default async function popularListing() {
     const listings = await getListings();
     const popularListings = await filterPopular(listings);
 
-    console.log(popularListings);
-
     let currentIndex = 0;
 
     updatePopularListing(popularListings, currentIndex);

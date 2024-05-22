@@ -5,8 +5,6 @@ export async function soonEndingListings() {
     try {
         const response = await getListings();
         const listings = response.data;
-
-        console.log(listings);
     
         listings.forEach(listing => {
             listing.endsAt = new Date(listing.endsAt);
@@ -19,8 +17,7 @@ export async function soonEndingListings() {
         activeListings.sort((a, b) => a.endsAt - b.endsAt);
     
         const soonestListings = activeListings.slice(0, 3);
-    
-        console.log(soonestListings);
+
 
         renderNewLastListings(soonestListings);
     } catch (error) {

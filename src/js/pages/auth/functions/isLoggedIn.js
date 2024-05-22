@@ -13,8 +13,6 @@ export default function isLoggedIn() {
     const authDiv = document.querySelector('.authDiv');
     const mobileAuthDiv = document.querySelector('.mobileAuthDiv');
 
-    console.log(profile);
-
     const existingProfileLink = document.querySelector('.tooltip-container');
     if (existingProfileLink) {
         existingProfileLink.remove();

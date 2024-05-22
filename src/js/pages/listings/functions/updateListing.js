@@ -10,8 +10,6 @@ export async function updateListing(newListing, listing) {
 
     const listingId = listing.id;
 
-    console.log(listingId);
-
     const updListing = newListing.querySelector('.updateBtn');
     const updFormDiv = document.getElementById('updListingDiv');
     const updFormX = document.getElementById('updListingX');
@@ -22,7 +20,6 @@ export async function updateListing(newListing, listing) {
 
         updListing.addEventListener('click', function() {
             updFormDiv.classList.remove('hidden');
-            console.log('clicked' + listingId);
     
             updForm.addEventListener('submit', async function(e) {
                 e.preventDefault();

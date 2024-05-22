@@ -1,3 +1,4 @@
+import { hideSpinner, showSpinner } from "../../../components/loadingSpinner.js";
 import { highestBid } from "../../landingPage/functions/highestBid.js";
 import { listingImage } from "../../landingPage/functions/listingImg.js";
 import { listingIsActive } from "../../landingPage/functions/listingIsActive.js";
@@ -38,5 +39,7 @@ export async function renderListings(filteredData) {
         });
     } catch (error) {
         console.error(error);
+        hideSpinner();
     }
 }
+

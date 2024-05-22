@@ -10,7 +10,8 @@ export async function updatePopularListing(popularListings, index) {
     const listingPrice = document.getElementById('popularPrice');
     const listingLink = document.getElementById('popularLink');
 
-    console.log(listing);
+    listingLink.setAttribute('href', `../listing/?id=${listing.id}`);
+    listingLink.setAttribute('data-listing-id', listing.id);
 
     listingTitle.textContent = listing.title;
     listingImg.src = listing.media[0].url;

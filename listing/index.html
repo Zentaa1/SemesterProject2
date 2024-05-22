@@ -89,7 +89,7 @@
                     </div>
                     <p id="listingTimeRemaining" class="text-primary text-base">Time remaining....</p>
                     <button id="bidBtn" class=" bg-secondary text-customWhite rounded py-1 px-2 font-semibold mt-4">Bid Now</button>
-                    <button class="bg-primary text-customWhite rounded py-1 px-2 font-semibold mt-2">Edit Listing</button>
+                    <button class="updateBtn bg-primary text-customWhite rounded py-1 px-2 font-semibold mt-2">Edit Listing</button>
                 </div>
             </div>
             <div class="ml-5">
@@ -106,6 +106,17 @@
                 </table>
             </div>
         </section>
+        <div id="updListingDiv" class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50 hidden">
+            <div class="bg-white p-8 rounded-lg w-full md:w-2/6 relative">
+                <button id="updListingX" class="absolute top-0 right-0 m-4 text-gray-600 hover:text-gray-900 focus:outline-none text-3xl">×</button>
+                <h2 class="text-2xl font-bold mb-4">Update Listing</h2>
+                <form id="updListingForm" class="flex flex-col">
+                    <input id="updListingTitle" type="text" placeholder="Title" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary">
+                    <textarea id="updListingDesc" placeholder="Description" rows="4" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary resize-none"></textarea>
+                    <input id="updListingImg" type="text" placeholder="Image Link" class="mb-4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-secondary">
+                    <button type="submit" class="bg-secondary text-white px-4 py-2 rounded-md focus:outline-none createListingBtn">Update Listing</button>
+                </form>
+            </div>
         <div id="biddingFormDiv" class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-900 bg-opacity-50 z-50 hidden">
             <div class="bg-white p-8 rounded-lg relative w-2/6">
                 <button id="biddingFormX" class="absolute top-8 right-10 -mt-8 -mr-8 text-3xl text-gray-600 hover:text-gray-900 focus:outline-none">×</button>

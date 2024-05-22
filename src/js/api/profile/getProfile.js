@@ -2,8 +2,6 @@ import { API_AUCTION, API_BASE, API_KEY, API_PROFILES } from "../auth/constants.
 import { load } from "../storage/load.js";
 
 export async function getProfile(name) {
-    console.log('hei');
-
     const response = await fetch(`${API_BASE}${API_AUCTION}${API_PROFILES}/${name}`, {
         headers: {
             "X-Noroff-API-Key": API_KEY,

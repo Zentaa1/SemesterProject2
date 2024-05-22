@@ -38,8 +38,6 @@ export async function renderNewLastListings(listings) {
 
             const listingTitle = listing.title;
 
-            console.log(listingTitle);
-
             newListing.querySelector('.newLastTitle').textContent = listingTitle;
 
             const listingState = newListing.querySelector('.newLastState');

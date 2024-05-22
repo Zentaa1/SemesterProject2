@@ -1,5 +1,7 @@
 import { getSingleListing } from "../../../api/Listings/getSingleListing.js";
 import { newBid } from "../../../api/Listings/newBid.js";
+import { hideSpinner, showSpinner } from "../../../components/loadingSpinner.js";
+import { updateListing } from "../../listings/functions/updateListing.js";
 
 export async function renderSingleListing() {
     try {
@@ -16,6 +18,9 @@ export async function renderSingleListing() {
         const listingTime = document.getElementById('listingTimeRemaining');
         const bidBtn = document.getElementById('bidBtn');
         const biddingForm = document.getElementById('biddingFormDiv');
+
+        updateListing(document, listing.data);
+
 
         bidBtn.addEventListener('click', function() {
             biddingForm.classList.remove('hidden');
@@ -57,9 +62,6 @@ export async function renderSingleListing() {
         }
         }, 1000);
 
-
-        console.log(bids);
-
         listingImg.src = listing.data.media[0].url;
         listingTitle.textContent = listing.data.title;
         listingSellerAvatar.src = listing.data.seller.avatar.url;
@@ -90,9 +92,7 @@ export async function renderSingleListing() {
             listingBidsTable.appendChild(newBidRow);
         });
         
-
-        console.log(listing);
     } catch(error) {
-        
+        console.log(error);
     }
 }
